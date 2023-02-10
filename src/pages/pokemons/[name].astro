@@ -1,0 +1,16 @@
+---
+import Title from "../../components/Title.astro"
+import Layout from "../../layouts/Layout.astro"
+import { getPokemonByName } from "../../utils/getPokemonByName"
+
+const { name } = Astro.params
+const pokemon = await getPokemonByName(name as string)
+---
+
+<Layout title={`${pokemon.name} Stats`}>
+  <div>
+    <Title>{pokemon.name}</Title>
+    <img src={pokemon.sprites.front_default} alt={`${pokemon.name} sprite`} />
+    <p>Types: {pokemon.types.map(type => type.type.name).join(", ")}</p>
+  </div>
+</Layout>
