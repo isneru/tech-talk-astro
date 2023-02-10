@@ -1,0 +1,15 @@
+---
+import { Button } from "../components/Button"
+import Title from "../components/Title.astro"
+import Layout from "../layouts/Layout.astro"
+const h1Content = "Homepage"
+---
+
+<Layout title="Homepage">
+  <Title title={h1Content} />
+  <a href="/pokemons">View Pokemons</a>
+  <div>
+    <p>React Component below</p>
+    <Button client:load />
+  </div>
+</Layout>

@@ -1,0 +1,35 @@
+---
+import type { MarkdownLayoutProps } from "astro"
+import Layout from "./Layout.astro"
+
+type Props = MarkdownLayoutProps<{
+  title: string
+}>
+
+const { frontmatter } = Astro.props
+---
+
+<Layout title={frontmatter.title}>
+  <slot />
+</Layout>
+
+<style is:global>
+  body {
+    font-family: system-ui, sans-serif;
+    background-color: #191919;
+    color: #ffffff;
+    padding-inline: 80px;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  p {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+</style>
